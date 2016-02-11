@@ -16,11 +16,21 @@ var firstFunction = function(){
             console.log(a, b, c)
 
         }
+        thirdFunction()
 
     }
+    secondFunction()
 }
 
 firstFunction()
+
+
+
+
+
+
+
+
 
 
 
