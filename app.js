@@ -1,15 +1,18 @@
 var todos = [
   {
     "taskName": "HVN meetup",
-    "dueDate": "016-02-26"
+    "dueDate": "016-02-26",
+    "complete": false
   },
   {
     "taskName": "Saturday",
-    "dueDate": "016-02-26"
+    "dueDate": "016-02-26",
+    "complete": false
   },
   {
     "taskName": "Sunday",
     "dueDate": "016-02-26"
+    "complete": false
   }
 ]
 
@@ -25,8 +28,6 @@ var $todonesList = $('#todonesList')
 
 todos.map(function(t){
 
-
-  
     $list.append('<tr class="rrr"> \
                   <td>' + t.taskName + '</td> \
                   <td>' + t.dueDate + '</td> \
@@ -87,5 +88,3 @@ var completeTodo = function(event){
 
 $('#submitTodo').on('click', newTodo)
 $('.markTodone').on('click', completeTodo)
-
-
