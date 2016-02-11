@@ -2,6 +2,7 @@
 <html>
   <head>
   <title>Page Title</title>
+  
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
@@ -35,17 +36,7 @@
                 <th>Complete</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Finish Todo</td>
-                <td>02/12/16</td>
-                <td><input type="checkbox"></td>
-              </tr>
-              <tr>
-                <td>Master JavaScript</td>
-                <td>02/16/16</td>
-                <td><input type="checkbox"></td>
-              </tr>
+            <tbody id='todoTable'>
             </tbody>
           </table>
           
@@ -64,21 +55,21 @@
           <h3>Create TODO</h3>
         </div>
         <div class="panel-body">
-          <form action="" method="POST" class="form-inline" role="form">
+          <form action="" class="form-inline" role="form">
           
             <div class="form-group">
               <label class="sr-only" for=""></label>
-              <input type="email" class="form-control" id="" placeholder="task name">
+              <input type="text" class="form-control" id="taskName" placeholder="task name">
             </div>
 
             <div class="form-group">
               <label class="sr-only" for=""></label>
-              <input type="email" class="form-control" id="" placeholder="due date">
+              <input type="date" class="form-control" id="dueDate" placeholder="due date">
             </div>
           
             
           
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="submitTodo" type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
@@ -107,11 +98,7 @@
                 <th>Date Completed</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Day One Of Class</td>
-                <td>02/8/16</td>
-              </tr>
+            <tbody id='todonesList'>
             </tbody>
           </table>
           
@@ -123,105 +110,10 @@
   </section>
 
 
-<!--   <div class="section">
-    <div class="row">
-      <div class="container my-container">
-      <h3>New Task</h3>
-        <form class="form-inline">
-          <div class="form-group">
-            <label for="exampleInputName2"></label>
-            <input type="text" class="form-control" id="" placeholder="name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail2"></label>
-            <input type="date" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-          </div>
-          <button type="submit" class="btn btn-default">create</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="row">
-      <div class="container my-container">
-        <div class="panel">
-          <div class="panel-header">
-            <h3>My ToDones</h3>
-          </div>
-          <div class="panel-body">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Date Complete</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>enroll in code school</td>
-                  <td>01/08/16</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-<section>
-  <div class="container">
-    <div class="row">
-    <div class="panel panel-default my-panel col-md-3">
-      <div class="panel-header my-header">
-        <h3>Header</h3>
-      </div>
-      <div class="panel-body">
-        <div class="col-md-6">
-          <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" alt="" class="img-thumbnail">
-        </div>
-        <div class="col-md-6">
-          <p>This is some content blah blah blah blah</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default my-panel col-md-3">
-      <div class="panel-header my-header">
-        <h3>Header</h3>
-      </div>
-      <div class="panel-body">
-        <div class="col-md-6">
-          <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" alt="" class="img-thumbnail">
-        </div>
-        <div class="col-md-6">
-          <p>This is some content blah blah blah blah</p>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default my-panel col-md-3">
-      <div class="panel-header my-header">
-        <h3>Header</h3>
-      </div>
-      <div class="panel-body">
-        <div class="col-md-6">
-          <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" alt="" class="img-thumbnail">
-        </div>
-        <div class="col-md-6">
-          <p>This is some content blah blah blah blah</p>
-        </div>
-      </div>
-    </div>
-      
-    </div>
-  </div>
-</section>
-
-
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
   <script src="app.js"></script>
 </html>
