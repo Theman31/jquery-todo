@@ -9,8 +9,11 @@ var todos = [taskOne, taskTwo, taskThree];
 var lookUpKey = "name" || "other name"
 
 console.log(todos[0][lookUpKey])
+c
 
 console.log(todos[0].name)
+console.log(todos[0]["name"])
+
 
 var str = "hello world.. How are you ";
 
