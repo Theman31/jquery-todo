@@ -1,38 +1,51 @@
-function handleNewTodo(event){
+var $list = $('#todoTable');
+var $todonesList = $('#todonesList');
+
+var taskOne = { name: "do some stuff", date: "02/16/2016" };
+var taskTwo = { name: "do some more stuff", date: "02/18/2016" };
+var taskThree = { name: "do even more some more stuff", date: "02/18/2016" };
+
+var todos = [taskOne, taskTwo, taskThree];
+
+
+todos.forEach(function(todo){
+      $list.append('<tr class=""> \
+                <td>' + todo.name + '</td> \
+                <td>' + todo.date + '</td> \
+                <td><button class="btn btn-primary markTodone deleteTodo">done</button></td> \
+              </tr>'
+            );
+})
+
+
+var newTodo = function(event){
 
   event.preventDefault();
 
-  var $event = $(event.target);
-  var $form = $event.closest('form');
-  
-  var $inputs = $form.find('input');
+  var taskName = $('#taskName').val();
+  var dueDate = $('#dueDate').val();
 
-  var taskName = $inputs.first().val();
-  var dueDate = $inputs.last().val();
+  if(taskName && dueDate){
 
-  var $list = $('#todoTable');
-  $list.append('<tr> \
-                  <td>' + taskName + '</td> \
-                  <td>' + dueDate + '</td> \
-                  <td><input type="checkbox"></td> \
-                </tr>');
-}
-
-
-$('#submitTodo').on('click', handleNewTodo);
-
-
-var handleChange = function(){
-
-  var $box = $(this);
-
-  if($box.is(':checked')){
-    alert('its checked')
-  } else {
-    alert('its not checked')
+    $list.append('<tr class=""> \
+                    <td>' + taskName + '</td> \
+                    <td>' + dueDate + '</td> \
+                    <td><button class="btn btn-primary markTodone">done</button></td> \
+                  </tr>'
+                );  
   }
 
+  $('#taskName').val('');
+  $('#dueDate').val('');
 }
 
+var deleteTodo = function(event){
 
-$('.checkss').on('click', handleChange)
+  event.preventDefault();
+
+    $(event.target).closest('tr').remove() 
+
+}
+
+$('#submitTodo').on('click', newTodo)
+$('.deleteTodo').on('click', deleteTodo)

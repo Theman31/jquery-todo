@@ -1,90 +1,65 @@
-var todos = [
-  {
-    "taskName": "HVN meetup",
-    "dueDate": "016-02-26",
-    "complete": false
-  },
-  {
-    "taskName": "Saturday",
-    "dueDate": "016-02-26",
-    "complete": false
-  },
-  {
-    "taskName": "Sunday",
-    "dueDate": "016-02-26"
-    "complete": false
-  }
-]
-
-var todones = [
-  {
-    "taskName": "start school",
-    "dueDate": "016-02-08"
-  },
-]
-
 var $list = $('#todoTable');
-var $todonesList = $('#todonesList')
 
-todos.map(function(t){
+var taskOne = { name: "do some stuff", date: "02/16/2016" };
+var taskTwo = { name: "do some more stuff", date: "02/18/2016" };
+var taskThree = { name: "do even more some more stuff", date: "02/18/2016" };
 
-    $list.append('<tr class="rrr"> \
-                  <td>' + t.taskName + '</td> \
-                  <td>' + t.dueDate + '</td> \
-                  <td><button class="btn btn-primary markTodone">done</button></td> \
-                </tr>'); 
+var todos = [taskOne, taskTwo, taskThree];
+
+var lookUpKey = "name" || "other name"
+
+console.log(todos[0][lookUpKey])
+
+console.log(todos[0].name)
+
+var str = "hello world.. How are you ";
+
+var moreStr = " thats fantastic"
+
+var strPlusName = "Douglas";
+var anotherName = "John";
+
+console.log(str + strPlusName + moreStr)
+console.log(str + anotherName + moreStr)
+
+
+
+todos.forEach(function(t){
+      $list.append('<tr class=""> \
+                <td>' + t.name + '</td> \
+                <td>' + t.date + '</td> \
+                <td><button class="btn btn-primary deleteTodo">done</button></td> \
+              </tr>'
+            );
 })
 
-todones.map(function(t){
-
-  
-    $todonesList.append('<tr> \
-                  <td>' + t.taskName + '</td> \
-                  <td>' + t.dueDate + '</td> \
-                </tr>'); 
-})
 
 var newTodo = function(event){
 
   event.preventDefault();
 
-  var $event = $(event.target);
-  var $form = $event.closest('form');
-  
-  var $inputs = $form.find('input');
+  var taskName = $('#taskName').val();
+  var dueDate = $('#dueDate').val();
 
-  var taskName = $inputs.first().val();
-  var dueDate = $inputs.last().val();
+  if(taskName && dueDate){
 
-  todos.push({"taskName": taskName, "dueDate": dueDate})  
+    $list.append('<tr class=""> \
+                    <td>' + taskName + '</td> \
+                    <td>' + dueDate + '</td> \
+                    <td><button class="btn btn-primary  deleteTodo">done</button></td> \
+                  </tr>'
+                );
+    $('.deleteTodo').on('click', deleteTodo);
+  }
 
-  $list.append('<tr> \
-                  <td>' + taskName + '</td> \
-                  <td>' + dueDate + '</td> \
-                  <td><button class="btn btn-primary">done</button></td> \
-                </tr>'); 
+  $('#taskName').val('');
+  $('#dueDate').val('');
 }
 
-var completeTodo = function(event){
-
-  console.log('event triggered')
-
-  event.preventDefault();
-
-  var $event = $(event.target);
-
-  var taskName = $event.closest('tr').children().eq(0);
-  var dueDate = $event.closest('tr').children().eq(1);
-
-
-  todones.push({"taskName": taskName, "dueDate": dueDate})  
-
-  $todonesList.append('<tr> \
-                  <td>' + taskName + '</td> \
-                  <td>' + dueDate + '</td> \
-                  <td><button class="btn btn-primary">done</button></td> \
-                </tr>'); 
+var deleteTodo = function(event){
+  $(event.target).closest('tr').remove();
 }
+
 
 $('#submitTodo').on('click', newTodo)
-$('.markTodone').on('click', completeTodo)
+$('.deleteTodo').on('click', deleteTodo)
